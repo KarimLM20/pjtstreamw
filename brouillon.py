@@ -47,3 +47,30 @@ authenticator = Authenticate(
     "cookie key",          # La clé du cookie, un str quelconque
     30,                    # Le nombre de jours avant que le cookie expire
 )
+
+
+
+users_df = pd.read_csv("https://raw.githubusercontent.com/KarimLM20/pjtstreamw/refs/heads/main/team.csv", sep=';')
+
+# Affiche les colonnes disponibles
+#st.write("Colonnes détectées :", users_df.columns.tolist())
+#st.write(users_df.head())
+
+# Interface utilisateur
+name = st.text_input("Nom d'utilisateur")
+password = st.text_input("Mot de passe", type="password")
+
+# Authentification simple
+if st.button("Se connecter"):
+    if "name" in users_df.columns and "password" in users_df.columns:
+        user = users_df[
+            (users_df['name'] == name) & (users_df['password'] == password)
+        ]
+        if not user.empty:
+            st.success("Connexion réussie !")
+        else:
+            st.error("Identifiants incorrects.")
+    else:
+        st.error("Colonnes 'username' et/ou 'password' non trouvées dans le CSV.")
+
+
