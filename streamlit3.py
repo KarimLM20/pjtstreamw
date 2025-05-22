@@ -89,36 +89,37 @@ with st.sidebar:
 
 
 
-# Nos données utilisateurs doivent respecter ce format
-lesDonneesDesComptes = {
-    'usernames': {
-        'utilisateur': {
-            'name': 'utilisateur',
-            'password': 'utilisateurMDP',
-            'email': 'utilisateur@gmail.com',
-            'failed_login_attemps': 0,  # Sera géré automatiquement
-            'logged_in': False,          # Sera géré automatiquement
-            'role': 'utilisateur'
-        },
-        'root': {
-            'name': 'root',
-            'password': 'rootMDP',
-            'email': 'admin@gmail.com',
-            'failed_login_attemps': 0,  # Sera géré automatiquement
-            'logged_in': False,          # Sera géré automatiquement
-            'role': 'administrateur'
-        }
-    }
-}
+# Chargement des utilisateurs depuis le fichier CSV
+@st.cache_data
+def load_users(csv_path='https://raw.githubusercontent.com/KarimLM20/pjtstreamw/refs/heads/main/team.csv'):
+    return pd.read_csv(csv_path)
 
-authenticator = Authenticate(
-    lesDonneesDesComptes,  # Les données des comptes
-    "cookie name",         # Le nom du cookie, un str quelconque
-    "cookie key",          # La clé du cookie, un str quelconque
-    30,                    # Le nombre de jours avant que le cookie expire
-)
+users_df = load_users()
 
-authenticator.login()
+# Interface de connexion
+st.title("Connexion")
+
+username = st.text_input("Nom d'utilisateur")
+password = st.text_input("Mot de passe", type="password")
+
+if st.button("Se connecter"):
+    user = users_df[
+        (users_df['username'] == username) & (users_df['password'] == password)
+    ]
+
+    if not user.empty:
+        st.session_state["logged_in"] = True
+        st.session_state["username"] = username
+        st.session_state["role"] = user.iloc[0]["role"]
+        st.success(f"Connecté en tant que {username} ({st.session_state['role']})")
+    else:
+        st.error("Nom d'utilisateur ou mot de passe incorrect.")
+
+# Affichage après connexion
+if st.session_state.get("logged_in"):
+    st.write(f"Bienvenue **{st.session_state['username']}** 🎉")
+    if st.button("Se déconnecter"):
+        st.session_state.clear()
 
 def accueil():
       st.title("Bienvenu sur le contenu réservé aux utilisateurs connectés")
@@ -127,25 +128,25 @@ def accueil():
 if st.session_state["authentication_status"]:
   accueil()
   # Le bouton de déconnexion
-  authenticator.logout("Déconnexion")
+  # authenticator.logout("Déconnexion")  # Removed because 'authenticator' is not defined
 
 elif st.session_state["authentication_status"] is False:
     st.error("L'username ou le password est/sont incorrect")
 elif st.session_state["authentication_status"] is None:
     st.warning('Les champs username et mot de passe doivent être remplie')
 
-
-
-
-
+authenticator = Authenticate(
+    users_df,  # Les données des comptes
+    "cookie name",         # Le nom du cookie, un str quelconque
+    "cookie key",          # La clé du cookie, un str quelconque
+    30,                    # Le nombre de jours avant que le cookie expire
+)
 
 # Sous-titre (taille 2), utile pour organiser le contenu par sous-sections
 st.subheader("Statistiques planétes")
 
 dataplanet = pd.read_csv('https://github.com/mwaskom/seaborn-data/blob/master/planets.csv')
 # Chargement des datasets disponibles
-
-#https://github.com/mwaskom/seaborn-data/blob/master/planets.csv
 
 df = st.selectbox("Quel dataset veux-tu utiliser ?",dataplanet)# Liste déroulante pour choisir le dataset
 
