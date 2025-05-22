@@ -18,7 +18,7 @@ elif selection == "Photos":
 import streamlit as st
 
 # Création de 3 colonnes 
-col1, col2, col3, col4, col5, col6, col7, col8, col9 = st.columns(3)
+col1, col2, col3, col4, col5, col6, col7, col8, col9 = st.columns(9)
 
 # Contenu de la première colonne : 
 
