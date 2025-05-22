@@ -131,7 +131,7 @@ st.subheader("Statistiques planétes")
 dataplanet = pd.read_csv('https://raw.githubusercontent.com/KarimLM20/pjtstreamw/refs/heads/main/planets.csv')
 # Chargement des datasets disponibles
 
-df = st.selectbox("Quel dataset veux-tu utiliser ?",dataplanet)# Liste déroulante pour choisir le dataset
+#df = st.selectbox("Quel dataset veux-tu utiliser ?",dataplanet)# Liste déroulante pour choisir le dataset
 
 set = sns.load_dataset("planets") # Liste des datasets disponibles
 
