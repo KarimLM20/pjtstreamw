@@ -139,21 +139,15 @@ elif st.session_state["authentication_status"] is None:
 
 
 
-# Titre principal de l'application (affiché en haut de la page)
-st.title("Exercice Streamlit Partie 2")
-
-# Titre de section important (taille 1)
-st.header("Voici un exemple de resultat attendu pour cet exercice :")
-
 # Sous-titre (taille 2), utile pour organiser le contenu par sous-sections
-st.subheader("Manipulation de données et création des graphiques")
+st.subheader("Statistiques planétes")
 
-name_dataset = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/refs/heads/master/dataset_names.txt')
+dataplanet = pd.read_csv('https://github.com/mwaskom/seaborn-data/blob/master/planets.csv')
 # Chargement des datasets disponibles
 
 #https://github.com/mwaskom/seaborn-data/blob/master/planets.csv
 
-df = st.selectbox("Quel dataset veux-tu utiliser ?",name_dataset)# Liste déroulante pour choisir le dataset
+df = st.selectbox("Quel dataset veux-tu utiliser ?",dataplanet)# Liste déroulante pour choisir le dataset
 
 set = sns.load_dataset(df) # Liste des datasets disponibles
 
