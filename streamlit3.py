@@ -1,6 +1,10 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 from streamlit_authenticator import Authenticate
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px 
 
 # Création du menu qui va afficher les choix qui se trouvent dans la variable options
 selection = option_menu(
@@ -129,3 +133,61 @@ elif st.session_state["authentication_status"] is False:
     st.error("L'username ou le password est/sont incorrect")
 elif st.session_state["authentication_status"] is None:
     st.warning('Les champs username et mot de passe doivent être remplie')
+
+
+
+
+
+
+# Titre principal de l'application (affiché en haut de la page)
+st.title("Exercice Streamlit Partie 2")
+
+# Titre de section important (taille 1)
+st.header("Voici un exemple de resultat attendu pour cet exercice :")
+
+# Sous-titre (taille 2), utile pour organiser le contenu par sous-sections
+st.subheader("Manipulation de données et création des graphiques")
+
+name_dataset = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/refs/heads/master/dataset_names.txt')
+# Chargement des datasets disponibles
+
+#https://github.com/mwaskom/seaborn-data/blob/master/planets.csv
+
+df = st.selectbox("Quel dataset veux-tu utiliser ?",name_dataset)# Liste déroulante pour choisir le dataset
+
+set = sns.load_dataset(df) # Liste des datasets disponibles
+
+dfchoisi= set.columns.to_list()
+#dfchoisi = set.columns.to_list() # Liste des colonnes du dataset choisi
+
+st.dataframe(set) # Affiche le dataframe sous forme de tableau interactif
+# Affiche une liste déroulante avec les colonnes du dataset flight
+X = st.selectbox("Choisissez la colonne X",dfchoisi)
+Y = st.selectbox("Choisissez la colonne Y", dfchoisi) # Liste déroulante pour choisir la colonne Y
+
+choixgraphique = ['scatter_chart', 'line_chart', 'bar_chart'] # Liste des types de graphiques disponibles
+# Liste déroulante pour choisir le type de graphique
+
+graphique = st.selectbox("Quel graphique veux-tu utiliser ?", choixgraphique) # Liste déroulante pour choisir le type de graphique
+# Liste des types de graphiques disponibles
+
+dictgraph= {
+    'scatter_chart': st.scatter_chart,
+    'line_chart': st.line_chart,
+    'bar_chart': st.bar_chart
+}
+# Dictionnaire pour associer les types de graphiques aux fonctions correspondantes
+# Affiche le graphique choisi
+graph = dictgraph[graphique]  
+graph(set, x=X, y=Y)
+
+# Affiche un histogramme de la colonne choisie
+
+if st.checkbox(label = "Afficher la matrice de corrélation",  key="corr_matrix_1"):
+    # Affiche la matrice de corrélation
+    numeric_df = set.select_dtypes(include=['number'])
+    fig, ax = plt.subplots()
+    sns.heatmap(numeric_df.corr(), annot=True, fmt=".2f", cmap='coolwarm', ax=ax)
+    st.pyplot(fig)
+
+
