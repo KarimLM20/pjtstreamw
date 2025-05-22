@@ -91,8 +91,8 @@ with st.sidebar:
 users_df = pd.read_csv("https://raw.githubusercontent.com/KarimLM20/pjtstreamw/refs/heads/main/team.csv", sep=';')
 
 # Affiche les colonnes disponibles
-st.write("Colonnes détectées :", users_df.columns.tolist())
-st.write(users_df.head())
+#st.write("Colonnes détectées :", users_df.columns.tolist())
+#st.write(users_df.head())
 
 # Interface utilisateur
 name = st.text_input("Nom d'utilisateur")
