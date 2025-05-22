@@ -88,7 +88,7 @@ with st.sidebar:
     )
 
 
-users_df = pd.read_csv("https://raw.githubusercontent.com/KarimLM20/pjtstreamw/refs/heads/main/team.csv"):
+users_df = pd.read_csv("https://raw.githubusercontent.com/KarimLM20/pjtstreamw/refs/heads/main/team.csv")
 st.write(users_df.head())      # Pour debug
 st.write(users_df.columns)     # Pour debug
 
