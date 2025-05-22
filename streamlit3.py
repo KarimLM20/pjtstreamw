@@ -22,7 +22,7 @@ col1, col2, col3 = st.columns(3)
 
 # Contenu de la première colonne : 
 with col1:
-  st.header("A earth from space")
+  st.header("Planet earth")
   st.image("https://images.sudouest.fr/2015/07/22/57eb956066a4bd7760c39754/default/1000/la-nasa-publie-sa-premiere-photo-de-la-terre-vue-de-l-espace-depuis-1972.jpg")
 
 # Contenu de la deuxième colonne :
@@ -36,7 +36,7 @@ with col3:
   st.image("https://starwalk.space/gallery/images/saturn-planet-guide/1920x1080.jpg")
 
   # Création de deux colonnes où col2 est deux fois plus large que col1 :
-col1, col2 = st.columns([2, 5])
+col1, col2, col3 = st.columns([2, 5])
 
 import streamlit as st
 
