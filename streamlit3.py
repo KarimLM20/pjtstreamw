@@ -88,17 +88,11 @@ with st.sidebar:
     )
 
 
+users_df = pd.read_csv("https://raw.githubusercontent.com/KarimLM20/pjtstreamw/refs/heads/main/team.csv"):
+st.write(users_df.head())      # Pour debug
+st.write(users_df.columns)     # Pour debug
 
-# Chargement des utilisateurs depuis le fichier CSV
-@st.cache_data
-def load_users(csv_path='https://raw.githubusercontent.com/KarimLM20/pjtstreamw/refs/heads/main/team.csv'):
-    return pd.read_csv(csv_path)
-
-users_df = load_users()
-
-# Interface de connexion
-st.title("Connexion")
-
+# Interface
 username = st.text_input("Nom d'utilisateur")
 password = st.text_input("Mot de passe", type="password")
 
@@ -108,18 +102,11 @@ if st.button("Se connecter"):
     ]
 
     if not user.empty:
-        st.session_state["logged_in"] = True
-        st.session_state["username"] = username
-        st.session_state["role"] = user.iloc[0]["role"]
-        st.success(f"Connecté en tant que {username} ({st.session_state['role']})")
+        st.success("Connexion réussie !")
     else:
-        st.error("Nom d'utilisateur ou mot de passe incorrect.")
+        st.error("Identifiants incorrects.")
 
-# Affichage après connexion
-if st.session_state.get("logged_in"):
-    st.write(f"Bienvenue **{st.session_state['username']}** 🎉")
-    if st.button("Se déconnecter"):
-        st.session_state.clear()
+
 
 def accueil():
       st.title("Bienvenu sur le contenu réservé aux utilisateurs connectés")
