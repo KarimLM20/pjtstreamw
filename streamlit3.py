@@ -60,7 +60,7 @@ with col9:
 
 
   # Création de deux colonnes où col2 est deux fois plus large que col1 :
-col1, col2, col3 = st.columns([2, 5])
+col1, col2, col3, col4, col5, col6, col7, col8, col9 = st.columns([2, 5])
 
 import streamlit as st
 
