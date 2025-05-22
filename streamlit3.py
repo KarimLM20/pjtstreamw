@@ -22,18 +22,18 @@ col1, col2, col3 = st.columns(3)
 
 # Contenu de la première colonne : 
 with col1:
-  st.header("A cat")
-  st.image("https://static.streamlit.io/examples/cat.jpg")
+  st.header("A Tree")
+  st.image("https://pixnio.com/free-images/2017/12/19/2017-12-19-20-47-41.jpg")
 
 # Contenu de la deuxième colonne :
 with col2:
-  st.header("A dog")
-  st.image("https://static.streamlit.io/examples/dog.jpg")
+  st.header("A Mountain")
+  st.image("https://s1.1zoom.me/b5050/214/Lake_Mountains_Scenery_441215_1920x1200.jpg")
 
 # Contenu de la troisième colonne : 
 with col3:
-  st.header("An owl")
-  st.image("https://static.streamlit.io/examples/owl.jpg")
+  st.header("A Forest")
+  st.image("https://www.baltana.com/files/wallpapers-9/Landscape-Forest-HD-Wallpaper-25726.jpg")
 
   # Création de deux colonnes où col2 est deux fois plus large que col1 :
 col1, col2 = st.columns([2, 5])
