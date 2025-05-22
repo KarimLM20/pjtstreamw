@@ -95,14 +95,14 @@ st.write("Colonnes détectées :", users_df.columns.tolist())
 st.write(users_df.head())
 
 # Interface utilisateur
-username = st.text_input("Nom d'utilisateur")
+name = st.text_input("Nom d'utilisateur")
 password = st.text_input("Mot de passe", type="password")
 
 # Authentification simple
 if st.button("Se connecter"):
-    if "username" in users_df.columns and "password" in users_df.columns:
+    if "name" in users_df.columns and "password" in users_df.columns:
         user = users_df[
-            (users_df['username'] == username) & (users_df['password'] == password)
+            (users_df['name'] == name) & (users_df['password'] == password)
         ]
         if not user.empty:
             st.success("Connexion réussie !")
