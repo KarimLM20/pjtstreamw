@@ -125,23 +125,6 @@ def accueil():
       st.title("Bienvenu sur le contenu réservé aux utilisateurs connectés")
 
 
-if st.session_state["authentication_status"]:
-  accueil()
-  # Le bouton de déconnexion
-  # authenticator.logout("Déconnexion")  # Removed because 'authenticator' is not defined
-
-elif st.session_state["authentication_status"] is False:
-    st.error("L'username ou le password est/sont incorrect")
-elif st.session_state["authentication_status"] is None:
-    st.warning('Les champs username et mot de passe doivent être remplie')
-
-authenticator = Authenticate(
-    users_df,  # Les données des comptes
-    "cookie name",         # Le nom du cookie, un str quelconque
-    "cookie key",          # La clé du cookie, un str quelconque
-    30,                    # Le nombre de jours avant que le cookie expire
-)
-
 # Sous-titre (taille 2), utile pour organiser le contenu par sous-sections
 st.subheader("Statistiques planétes")
 
