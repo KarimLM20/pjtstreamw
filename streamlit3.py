@@ -23,7 +23,7 @@ col1, col2, col3 = st.columns(3)
 # Contenu de la première colonne : 
 with col1:
   st.header("A Tree")
-  st.image("https://pixnio.com/free-images/2017/12/19/2017-12-19-20-47-41.jpg")
+  st.image("https://www.publicdomainpictures.net/pictures/250000/velka/tree-1524116693MIN.jpg")
 
 # Contenu de la deuxième colonne :
 with col2:
