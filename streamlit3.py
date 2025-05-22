@@ -133,7 +133,7 @@ dataplanet = pd.read_csv('https://raw.githubusercontent.com/KarimLM20/pjtstreamw
 
 df = st.selectbox("Quel dataset veux-tu utiliser ?",dataplanet)# Liste déroulante pour choisir le dataset
 
-set = sns.load_dataset(df) # Liste des datasets disponibles
+set = sns.load_dataset("planets") # Liste des datasets disponibles
 
 dfchoisi= set.columns.to_list()
 #dfchoisi = set.columns.to_list() # Liste des colonnes du dataset choisi
