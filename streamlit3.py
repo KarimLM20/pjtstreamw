@@ -88,7 +88,7 @@ with st.sidebar:
     )
 
 
-users_df = pd.read_csv("https://raw.githubusercontent.com/KarimLM20/pjtstreamw/refs/heads/main/team.csv")
+users_df = pd.read_csv("https://raw.githubusercontent.com/KarimLM20/pjtstreamw/refs/heads/main/team.csv", sep=';')
 st.write(users_df.head())      # Pour debug
 st.write(users_df.columns)     # Pour debug
 
@@ -115,7 +115,7 @@ def accueil():
 # Sous-titre (taille 2), utile pour organiser le contenu par sous-sections
 st.subheader("Statistiques planétes")
 
-dataplanet = pd.read_csv('https://raw.githubusercontent.com/KarimLM20/pjtstreamw/refs/heads/main/planets.csv')
+dataplanet = pd.read_csv('https://raw.githubusercontent.com/KarimLM20/pjtstreamw/refs/heads/main/planets.csv', sep=';')
 # Chargement des datasets disponibles
 
 #df = st.selectbox("Quel dataset veux-tu utiliser ?",dataplanet)# Liste déroulante pour choisir le dataset
