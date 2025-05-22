@@ -1,0 +1,10 @@
+name,password,email,failed_login_attemps,logged_in,role
+hassan,123456,s********@yahoo.com,0,1,etudiant
+sofiane,123456,s*******@yahoo.com,0,1,formateur
+jordan,123456,j********@msn.com,0,1,etudiant
+bertrand,123456,b********@msn.com,0,1,etudiant
+pauline,123456,p*********@msn.com,0,1,etudiant
+gaelle,123456,g********@msn.com,0,1,etudiant
+aicha,123456,a********@msn.fr,0,1,etudiant
+tiphaine,123456,t*******@msn.com,0,1,formateur
+karim,123456,k*********@msn.com,0,1,etudiant
