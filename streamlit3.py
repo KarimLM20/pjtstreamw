@@ -22,18 +22,18 @@ col1, col2, col3 = st.columns(3)
 
 # Contenu de la première colonne : 
 with col1:
-  st.header("A Tree")
-  st.image("https://www.publicdomainpictures.net/pictures/250000/velka/tree-1524116693MIN.jpg")
+  st.header("A earth from space")
+  st.image("https://images.sudouest.fr/2015/07/22/57eb956066a4bd7760c39754/default/1000/la-nasa-publie-sa-premiere-photo-de-la-terre-vue-de-l-espace-depuis-1972.jpg")
 
 # Contenu de la deuxième colonne :
 with col2:
-  st.header("A Mountain")
-  st.image("https://s1.1zoom.me/b5050/214/Lake_Mountains_Scenery_441215_1920x1200.jpg")
+  st.header("Planet Mars")
+  st.image("https://wiki.fed-space.com/images/thumb/1/1b/Mars.jpg/1200px-Mars.jpg")
 
 # Contenu de la troisième colonne : 
 with col3:
-  st.header("A Forest")
-  st.image("https://www.baltana.com/files/wallpapers-9/Landscape-Forest-HD-Wallpaper-25726.jpg")
+  st.header("Planet Saturn")
+  st.image("https://starwalk.space/gallery/images/saturn-planet-guide/1920x1080.jpg")
 
   # Création de deux colonnes où col2 est deux fois plus large que col1 :
 col1, col2 = st.columns([2, 5])
