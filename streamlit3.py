@@ -19,8 +19,6 @@ import streamlit as st
 
 # Création de 3 colonnes 
 col1, col2, col3= st.columns(3)
-col4, col5, col6,= st.columns(3)
-col7, col8, col9 = st.columns(3)
 
 # Contenu de la première colonne : 
 
@@ -36,6 +34,8 @@ with col3:
   st.header("Planet earth")
   st.image("https://images.sudouest.fr/2015/07/22/57eb956066a4bd7760c39754/default/1000/la-nasa-publie-sa-premiere-photo-de-la-terre-vue-de-l-espace-depuis-1972.jpg")
 
+col4, col5, col6,= st.columns(3)
+
 with col4:
   st.header("Planet Mars")
   st.image("https://wiki.fed-space.com/images/thumb/1/1b/Mars.jpg/1200px-Mars.jpg")
@@ -47,6 +47,8 @@ with col5:
 with col6:
   st.header("Planet Saturn")
   st.image("https://starwalk.space/gallery/images/saturn-planet-guide/1920x1080.jpg")
+
+col7, col8, col9= st.columns(3)
 
 with col7:
     st.header("Planet Uranus")
