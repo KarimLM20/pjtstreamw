@@ -110,26 +110,8 @@ def page_accueil():
     st.write("Bienvenue sur la page d'accueil !")
 
 def page_photos():
-    st.title("🪐 Album des planètes")
-
-    planetes = [
-        ("Mercure", "https://wallpapercave.com/wp/wp4047226.jpg"),
-        ("Vénus", "https://www.lecosmographe.com/wp-content/uploads/2021/01/Venus.jpg"),
-        ("Terre", "https://images.sudouest.fr/2015/07/22/57eb956066a4bd7760c39754/default/1000/la-nasa-publie-sa-premiere-photo-de-la-terre-vue-de-l-espace-depuis-1972.jpg"),
-        ("Mars", "https://wiki.fed-space.com/images/thumb/1/1b/Mars.jpg/1200px-Mars.jpg"),
-        ("Jupiter", "https://static.vecteezy.com/system/resources/thumbnails/021/184/177/original/jupiter-planet-3d-footage-space-exploration-video.jpg"),
-        ("Saturne", "https://starwalk.space/gallery/images/saturn-planet-guide/1920x1080.jpg"),
-        ("Uranus", "https://wallpaperaccess.com/full/415311.jpg"),
-        ("Neptune", "https://millionfacts.co.uk/wp-content/uploads/2023/02/Interesting-facts-about-Neptune.jpg"),
-        ("Pluton", "https://desetoilespourtous.com/wp-content/uploads/2022/06/Pluton.png")
-    ]
-
-    for i in range(0, len(planetes), 3):
-        cols = st.columns(3)
-        for col, (nom, url) in zip(cols, planetes[i:i+3]):
-            with col:
-                st.header(f"🌍 {nom}")
-                st.image(url, use_column_width=True)
+    st.title("🪐 systéme solaire")
+    st.image("https://img-31.ccm2.net/z8yKQ-qW41NA1M_0g7U54MLhkC4=/1080x/smart/a109ad8672264f71b7dcacb856651088/ccmcms-hugo/23366424.jpg")
 
 def page_utilisateur():
     st.title("👤 Espace réservé")
