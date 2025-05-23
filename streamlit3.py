@@ -6,6 +6,40 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px 
 
+# Nos données utilisateurs doivent respecter ce format
+lesDonneesDesComptes = {
+    'usernames': {
+        'utilisateur': {
+            'name': 'utilisateur',
+            'password': 'utilisateurMDP',
+            'email': 'utilisateur@gmail.com',
+            'failed_login_attemps': 0,  # Sera géré automatiquement
+            'logged_in': False,          # Sera géré automatiquement
+            'role': 'utilisateur'
+        },
+        'root': {
+            'name': 'root',
+            'password': 'rootMDP',
+            'email': 'admin@gmail.com',
+            'failed_login_attemps': 0,  # Sera géré automatiquement
+            'logged_in': False,          # Sera géré automatiquement
+            'role': 'administrateur'
+        }
+    }
+}
+
+authenticator = Authenticate(
+    lesDonneesDesComptes,  # Les données des comptes
+    "cookie name",         # Le nom du cookie, un str quelconque
+    "cookie key",          # La clé du cookie, un str quelconque
+    30,                    # Le nombre de jours avant que le cookie expire
+)
+
+authenticator.login()
+
+def accueil():
+      st.title("Bienvenu sur le contenu réservé aux utilisateurs connectés")
+
 # Création du menu qui va afficher les choix qui se trouvent dans la variable options
 selection = option_menu(
             menu_title=None,
@@ -70,8 +104,6 @@ with col9:
   # Création de deux colonnes où col2 est deux fois plus large que col1 :
 col1, col2, col3, col4, col5, col6, col7, col8, col9 = st.columns([1, 2, 1, 1, 1, 1, 1, 1, 1])
 
-import streamlit as st
-
 # On affiche un menu déroulant (selectbox) DANS la barre latérale (sidebar)
 # L'utilisateur peut choisir son moyen de contact préféré parmi trois options
 add_selectbox = st.sidebar.selectbox(
@@ -87,41 +119,6 @@ with st.sidebar:
         ("Standard (5-15 days)", "Express (2-5 days)")  # Choix proposés
     )
 
-
-
-
-
-
-# Nos données utilisateurs doivent respecter ce format
-lesDonneesDesComptes = {
-    'usernames': {
-        'utilisateur': {
-            'name': 'utilisateur',
-            'password': 'utilisateurMDP',
-            'email': 'utilisateur@gmail.com',
-            'failed_login_attemps': 0,  # Sera géré automatiquement
-            'logged_in': False,          # Sera géré automatiquement
-            'role': 'utilisateur'
-        },
-        'root': {
-            'name': 'root',
-            'password': 'rootMDP',
-            'email': 'admin@gmail.com',
-            'failed_login_attemps': 0,  # Sera géré automatiquement
-            'logged_in': False,          # Sera géré automatiquement
-            'role': 'administrateur'
-        }
-    }
-}
-
-authenticator = Authenticate(
-    lesDonneesDesComptes,  # Les données des comptes
-    "cookie name",         # Le nom du cookie, un str quelconque
-    "cookie key",          # La clé du cookie, un str quelconque
-    30,                    # Le nombre de jours avant que le cookie expire
-)
-
-authenticator.login()
 
 def accueil():
       st.title("Bienvenu sur le contenu réservé aux utilisateurs connectés")
