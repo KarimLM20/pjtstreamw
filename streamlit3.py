@@ -70,27 +70,6 @@ with col9:
   # Création de deux colonnes où col2 est deux fois plus large que col1 :
 col1, col2, col3, col4, col5, col6, col7, col8, col9 = st.columns([1, 2, 1, 1, 1, 1, 1, 1, 1])
 
-import streamlit as st
-
-# On affiche un menu déroulant (selectbox) DANS la barre latérale (sidebar)
-# L'utilisateur peut choisir son moyen de contact préféré parmi trois options
-add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?", # Question affichée
-    ("Email", "Home phone", "Mobile phone") # Options proposées
-)
-
-# Autre façon d'utiliser la sidebar avec un "with", pour grouper plusieurs éléments
-with st.sidebar:
-    # On affiche des boutons radio dans la sidebar pour choisir un mode de livraison
-    add_radio = st.radio(
-        "Choose a shipping method",  # Titre de la question
-        ("Standard (5-15 days)", "Express (2-5 days)")  # Choix proposés
-    )
-
-
-
-
-
 
 # Nos données utilisateurs doivent respecter ce format
 lesDonneesDesComptes = {
